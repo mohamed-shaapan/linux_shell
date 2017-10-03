@@ -8,7 +8,7 @@
 
 
 
-void handle_single_command(char command[512]){
+void handle_single_command(char *command){
 
     // 01_get user command
     //char command[512]="mkdir folder_success";

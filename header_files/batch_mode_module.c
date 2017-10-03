@@ -1,6 +1,6 @@
 // import libraries
 // *******************************************
-#include "batch_command_handler.h"
+#include "batch_mode_module.h"
 #include "single_command_handler.h"
 
 #include <sys/wait.h>
@@ -12,7 +12,7 @@
 
 // internal functions
 // *******************************************
-void handle_batch_commands(char file_directory[256]){
+void run_batch_mode(char file_directory[256]){
 
 	// 01_obtain commands_list array
 	char commands_list[3][256];
