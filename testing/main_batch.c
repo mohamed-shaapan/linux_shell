@@ -205,7 +205,7 @@ char **lsh_split_line(char *line)
       tokens_backup = tokens;
       tokens = realloc(tokens, bufsize * sizeof(char*));
       if (!tokens) {
-		free(tokens_backup);
+    free(tokens_backup);
         fprintf(stderr, "lsh: allocation error\n");
         exit(EXIT_FAILURE);
       }
@@ -229,7 +229,6 @@ void lsh_loop(void)
   do {
     printf("> ");
     line = lsh_read_line();
-    //printf("\nline is : %s", line);
     args = lsh_split_line(line);
     status = lsh_execute(args);
 
@@ -244,14 +243,23 @@ void lsh_loop(void)
    @param argv Argument vector.
    @return status code
  */
-int main(int argc, char **argv)
-{
-  // Load config files, if any.
 
-  // Run command loop.
-  lsh_loop();
+int main(int argc, char *argv[]){
 
-  // Perform any shutdown/cleanup.
+    // Load config files, if any.
+    if( argc > 1 ){
+      // Batch Mode
+      printf("\nBatch Mode");
+      printf("\nFile Directory : %s\n", argv[1]);
+    }
+    else{
+      // Interative Mode
+      printf("\nInteractive Mode\n");
+      lsh_loop();
+    }
 
-  return EXIT_SUCCESS;
-}
+    // Perform any shutdown/cleanup.
+    return EXIT_SUCCESS;
+  }
+
+   

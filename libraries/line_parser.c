@@ -2,11 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int main ()
-{
+
+#define LSH_TOK_DELIM " \t\r\n\a"
+
+int main (){
 
 	// read user command
-	char input_command[] ="- This, a sample string.";
+	char *input_command ="- This, a sample string.";
 
 	// split command into arguments
 	char * arguments;

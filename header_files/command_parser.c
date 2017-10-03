@@ -1,5 +1,7 @@
 // import libraries
 // *******************************************
+#include "command_parser.h"
+
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -13,8 +15,7 @@
 #define LSH_TOK_DELIM " \t\r\n\a"
 
 
-char **parse_line(char *line){
-  //ls_split_line
+char **parse_command(char *command){
 
     int bufsize = LSH_TOK_BUFSIZE, position = 0;
     char **tokens = malloc(bufsize * sizeof(char*));
@@ -25,7 +26,7 @@ char **parse_line(char *line){
       exit(EXIT_FAILURE);
     }
 
-    token = strtok(line, LSH_TOK_DELIM);
+    token = strtok(command, LSH_TOK_DELIM);
     while (token != NULL) {
       tokens[position] = token;
       position++;
@@ -44,37 +45,4 @@ char **parse_line(char *line){
     tokens[position] = NULL;
     return tokens;
 }
-
-
-void print_args(char **args){
-
-  int index=0;
-  while(1){
-    if(args[index]==NULL){
-      break;
-    }
-    printf("\nargs[%d] = %s", index, args[index]);
-    index++;
-  }
-
-}
-
-// main functions
-// *******************************************
-int main(){
-
-  char* line="mohamed ibrahim shaapan";
-
-    char **args=parse_line(args);
-
-    print_args(args);
-
-
-    return 0;
-}
-
-
-
-
-
 

@@ -1,0 +1,32 @@
+01_compile program in c
+***********************
+
+1) cd to where your program is located
+
+2) compile program
+
+	>	gcc -o [output file name] file.c 	-> (use proprietary name)
+
+	>	gcc file.c 							-> (use default name)
+
+	(where gcc is compiler. others also exist)
+
+3) run program
+
+	>	./program
+
+
+********************************************************
+********************************************************
+02_use makefile
+***************
+
+
+
+
+
+
+
+
+********************************************************
+********************************************************
