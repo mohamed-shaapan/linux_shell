@@ -2,39 +2,58 @@
 // *******************************************
 #include "file_handler.h"
 
+#include <sys/wait.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
 // internal functions
+// *******************************************
+#define COMMAND_MAX_LENGTH 512
+#define LSH_TOK_buffsize 64
+
+
 char **get_commands_array(char file_directory[256]){
 
-
-
-}
-
-
-char* read_file(char[100] file_directory){
-   //this funtion reads commands from batch file
-
-   int command_max_len=512;
-   char* result;
+   /*int buffsize = LSH_TOK_buffsize;
+   char **command_list = malloc(buffsize * sizeof(char*));
 
    // 1) open file
-   //file_directory="test.txt";
    FILE *pointer;
    pointer=fopen(file_directory, "r");
+   int index=0;
 
    // 2) read from file
-   char line[command_max_len];
+   char line[COMMAND_MAX_LENGTH];
    while(!feof(pointer)){
       //fscanf(pointer, "%s", line);
-      fgets(line, command_max_len, (FILE*)pointer);
-      //EXECUTE LINE HERE
-      //printf("\nCurrent Command : %s", line);
+      fgets(command_list[index] , COMMAND_MAX_LENGTH, (FILE*)pointer);
+      index++;
+     
+      if (index >= buffsize) {
+        buffsize += LSH_TOK_buffsize;
+        command_list = realloc(command_list, buffsize * sizeof(char*));
+      }
    }
 
    // 3) close file
-   fclose(pointer);  
+   fclose(pointer); 
+
+   return command_list;*/
+
 }
 
+// main functions
+// *******************************************
+/*
+int main(){
 
+      char **command_list;
+
+      char file_directory[50]="batch_scripts.txt";
+      command_list=get_commands_array(file_directory);
+
+      return 0;
+}*/
