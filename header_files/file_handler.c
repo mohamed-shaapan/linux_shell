@@ -1,11 +1,12 @@
 // import libraries
 // *******************************************
+#include "file_handler.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 
-// internal functions
+// read from file
 // *******************************************
 char **read_file(char *file_directory){
 
@@ -39,25 +40,26 @@ char **read_file(char *file_directory){
 }
 
 
-/*void write_file(){
+// write to file
+// *******************************************
+void write_to_file(char *file_directory, char *line){
 
   // 1_open file
-  char file_directory[]="test.txt";
   FILE *pointer;
-  pointer=fopen(file_directory, "w");
+  pointer=fopen(file_directory, "a");
    
   // 2_write to file
-  char some_text[]="my name is mohamed";
-  fprintf(pointer, some_text);
-  fputs(some_text, pointer);
+  //fprintf(pointer, line);
+  fputs(line, pointer);
+  fputs("\n", pointer);
 
   // 3_close file
   fclose(pointer);
 
-}*/
+}
 
 
-void print_array(char **list){
+/*void print_list(char **list){
 
   int index=0;
 
@@ -70,17 +72,4 @@ void print_array(char **list){
 
   printf("\n");
 
-}
-
-
-// main function
-// *******************************************
-int main() {
-
-
-    char **user_commands=read_file("test.txt");
-
-    print_array(user_commands);
-   
-
-}
+}*/

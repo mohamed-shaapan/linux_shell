@@ -5,7 +5,9 @@
 /* 
 	CommandsBatch file basic functions' prototypes
 */
-char **get_commands_array(char file_directory[256]);
+char **read_file(char *file_directory);
+
+void write_to_file(char *file_directory, char *line);
 
 
 #endif // FILE_PROCESSING_H_

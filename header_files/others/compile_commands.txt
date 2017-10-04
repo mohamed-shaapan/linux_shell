@@ -1,1 +1,1 @@
-gcc main.c interactive_mode_module.c single_command_handler.c command_parser.c basic_command_execution.c special_command_execution.c batch_mode_module.c
+gcc main.c interactive_mode_module.c single_command_handler.c command_parser.c basic_command_execution.c special_command_execution.c batch_mode_module.c file_handler.c

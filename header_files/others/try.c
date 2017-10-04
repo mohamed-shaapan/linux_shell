@@ -2,7 +2,6 @@
 // *******************************************
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 
 // internal functions
@@ -39,22 +38,21 @@ char **read_file(char *file_directory){
 }
 
 
-/*void write_file(){
+void write_file(char *file_directory, char *line){
 
   // 1_open file
-  char file_directory[]="test.txt";
   FILE *pointer;
-  pointer=fopen(file_directory, "w");
+  pointer=fopen(file_directory, "a");
    
   // 2_write to file
-  char some_text[]="my name is mohamed";
-  fprintf(pointer, some_text);
-  fputs(some_text, pointer);
+  //fprintf(pointer, line);
+  fputs(line, pointer);
+  fputs("\n", pointer);
 
   // 3_close file
   fclose(pointer);
 
-}*/
+}
 
 
 void print_array(char **list){
@@ -78,9 +76,12 @@ void print_array(char **list){
 int main() {
 
 
-    char **user_commands=read_file("test.txt");
-
-    print_array(user_commands);
+    //char **user_commands=read_file("test.txt");
+    //print_array(user_commands);
    
+    char *line="mohamed shaapan";
+    write_file("test.txt", line);
 
 }
+
+

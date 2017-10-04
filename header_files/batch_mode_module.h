@@ -4,7 +4,7 @@
 /* 
 	- This function should be responsible for ...
 */
-void run_batch_mode(char file_directory[256]);
+void run_batch_mode(char *file_directory);
 
 
 #endif // COMMANDS_H_
