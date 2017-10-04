@@ -17,6 +17,26 @@ void handle_single_command(char *command){
     char **args=parse_command(command);
 
     // 03_run command
+    // DETERMINE TYPE OF COMMAND
     run_single_command(args);
+
+    /*
+    // 01_an empty command was entered.
+	if (args[0] == NULL) {
+   
+    	return 1;
+  	}
+
+  	int i;
+  	for (i = 0; i < lsh_num_builtins(); i++) {
+  		//special command entered
+    	if (strcmp(args[0], builtin_str[i]) == 0) {
+      		return (*builtin_func[i])(args);
+    	}
+  	}else{
+  		// normal command type
+  		run_single_command(args);
+  	}
+  	*/
 
 }

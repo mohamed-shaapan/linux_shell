@@ -28,13 +28,13 @@ void run_interactive_mode(){
 
     while(1){
 
-        // 01_get user command
-        printf("\nShell >> ");
+      // 01_get user command
+      printf("\nShell >> ");
    		user_command=read_input_line();
 
-        // 02_handler user command
-        handle_single_command(user_command);
-        //printf("\nYour Command Is : %s", user_command);
+      // 02_handler user command
+      handle_single_command(user_command);
+      //printf("\nYour Command Is : %s", user_command);
     }
 
 
