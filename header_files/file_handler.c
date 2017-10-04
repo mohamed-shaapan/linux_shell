@@ -1,59 +1,86 @@
 // import libraries
 // *******************************************
-#include "file_handler.h"
-
-#include <sys/wait.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 
 // internal functions
 // *******************************************
-#define COMMAND_MAX_LENGTH 512
-#define LSH_TOK_buffsize 64
+char **read_file(char *file_directory){
 
+  // result
+  char **lines_as_list=malloc(200*512*sizeof(char));
 
-char **get_commands_array(char file_directory[256]){
+  // 01_open file
+  FILE *pointer;
+  pointer=fopen(file_directory, "r");
 
-   /*int buffsize = LSH_TOK_buffsize;
-   char **command_list = malloc(buffsize * sizeof(char*));
+  // 02_read from file
+  int index=0;
 
-   // 1) open file
-   FILE *pointer;
-   pointer=fopen(file_directory, "r");
-   int index=0;
+  while(!feof(pointer)){
 
-   // 2) read from file
-   char line[COMMAND_MAX_LENGTH];
-   while(!feof(pointer)){
-      //fscanf(pointer, "%s", line);
-      fgets(command_list[index] , COMMAND_MAX_LENGTH, (FILE*)pointer);
-      index++;
-     
-      if (index >= buffsize) {
-        buffsize += LSH_TOK_buffsize;
-        command_list = realloc(command_list, buffsize * sizeof(char*));
-      }
-   }
+    char *current_line=malloc(512*sizeof(char));
 
-   // 3) close file
-   fclose(pointer); 
+    fgets(current_line, 512, pointer);
+    lines_as_list[index]=current_line;
 
-   return command_list;*/
+    index++;
+
+  }
+
+  // 03_close file
+  fclose(pointer);
+
+  // return alue
+  return lines_as_list;
 
 }
 
-// main functions
-// *******************************************
-/*
-int main(){
 
-      char **command_list;
+/*void write_file(){
 
-      char file_directory[50]="batch_scripts.txt";
-      command_list=get_commands_array(file_directory);
+  // 1_open file
+  char file_directory[]="test.txt";
+  FILE *pointer;
+  pointer=fopen(file_directory, "w");
+   
+  // 2_write to file
+  char some_text[]="my name is mohamed";
+  fprintf(pointer, some_text);
+  fputs(some_text, pointer);
 
-      return 0;
+  // 3_close file
+  fclose(pointer);
+
 }*/
+
+
+void print_array(char **list){
+
+  int index=0;
+
+  while(list[index]!=NULL){
+
+    printf("line#%d: %s", index+1, list[index]);
+    index++;
+  
+  }
+
+  printf("\n");
+
+}
+
+
+// main function
+// *******************************************
+int main() {
+
+
+    char **user_commands=read_file("test.txt");
+
+    print_array(user_commands);
+   
+
+}

@@ -1,51 +1,86 @@
 // import libraries
 // *******************************************
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
 
 // internal functions
 // *******************************************
-char *read_input_line(void){
+char **read_file(char *file_directory){
 
-  	char *line = NULL;
-  	ssize_t bufsize = 0; // have getline allocate a buffer for us
-  	getline(&line, &bufsize, stdin);
-  	
-  	return line;
-}
+  // result
+  char **lines_as_list=malloc(200*512*sizeof(char));
 
+  // 01_open file
+  FILE *pointer;
+  pointer=fopen(file_directory, "r");
 
+  // 02_read from file
+  int index=0;
 
+  while(!feof(pointer)){
 
-void interactive_mode_handler(){
+    char *current_line=malloc(512*sizeof(char));
 
-    char *user_command;
+    fgets(current_line, 512, pointer);
+    lines_as_list[index]=current_line;
 
-    while(1){
+    index++;
 
-        // 01_get user command
-        printf("\nShell >> ");
-   		user_command=read_input_line();
-   		//scanf("%s", &user_command);
-
-        // 02_handler user command
-        //handle_single_command(command);
-        printf("\nYour Command Is : %s", user_command);
-    }
-
-    
-
-}
-
-// main functions
-// *******************************************
-int main(){
-
-	interactive_mode_handler();
-    return 0;
   }
 
+  // 03_close file
+  fclose(pointer);
+
+  // return alue
+  return lines_as_list;
+
+}
 
 
+/*void write_file(){
 
+  // 1_open file
+  char file_directory[]="test.txt";
+  FILE *pointer;
+  pointer=fopen(file_directory, "w");
+   
+  // 2_write to file
+  char some_text[]="my name is mohamed";
+  fprintf(pointer, some_text);
+  fputs(some_text, pointer);
+
+  // 3_close file
+  fclose(pointer);
+
+}*/
+
+
+void print_array(char **list){
+
+  int index=0;
+
+  while(list[index]!=NULL){
+
+    printf("line#%d: %s", index+1, list[index]);
+    index++;
+  
+  }
+
+  printf("\n");
+
+}
+
+
+// main function
+// *******************************************
+int main() {
+
+
+    char **user_commands=read_file("test.txt");
+
+    print_array(user_commands);
+   
+
+}

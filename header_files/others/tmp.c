@@ -1,32 +1,87 @@
 // import libraries
 // *******************************************
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 
-// main functions
+// internal functions
 // *******************************************
-#define BUF 128 /* can change the buffer size as well */
-#define TOT 10 /* change to accomodate other sizes, change ONCE here */
+char **read_file(char *file_directory){
 
-int main(void) {
+  // result
+  char **lines_as_list=malloc(200*512*sizeof(char));
 
-    char commands_list[TOT][BUF];
-    int i = 0;
-    int total = 0;
+  // 01_open file
+  FILE *pointer;
+  pointer=fopen(file_directory, "r");
+
+  // 02_read from file
+  int index=0;
+  char *current_line=malloc(512*sizeof(char));
+  char *current_line=malloc(512*sizeof(char));
+
+  while(!feof(pointer)){
+
+    fgets(current_line, 512, pointer);
+    //printf("%s", current_line);
+    //strcpy(lines_as_list[index], current_line);
+    lines_as_list[index]=(*current_line);
+    index++;
+
+  }
+
+  // 03_close file
+  fclose(pointer);
+
+  // return alue
+  return lines_as_list;
+
+}
 
 
-    char *file_directory="batch_script.txt";
-    FILE *file_pointer = fopen(file_directory, "r");
+/*void write_file(){
 
-    while(fgets(commands_list[i], BUF, file_pointer)) {
-        /* get rid of ending \n from fgets */
-        commands_list[i][strlen(commands_list[i]) - 1] = '\0';
-        i++;
-    }
+  // 1_open file
+  char file_directory[]="test.txt";
+  FILE *pointer;
+  pointer=fopen(file_directory, "w");
+   
+  // 2_write to file
+  char some_text[]="my name is mohamed";
+  fprintf(pointer, some_text);
+  fputs(some_text, pointer);
 
-    total = i;
+  // 3_close file
+  fclose(pointer);
 
-    for(i = 0; i < total; ++i)
-        printf("%s\n", commands_list[i]);
+}*/
 
-    return 0;
+
+void print_array(char **list){
+
+  int index=0;
+
+  while(list[index]!=NULL){
+
+    printf("\nline#%d: %s", index+1, list[index]);
+    index++;
+  
+  }
+
+  printf("\n");
+
+}
+
+
+// main function
+// *******************************************
+int main() {
+
+
+    char **user_commands=read_file("test.txt");
+
+    print_array(user_commands);
+   
+
 }

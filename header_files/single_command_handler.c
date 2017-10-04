@@ -1,8 +1,10 @@
 // import libraries
 // *******************************************
-#include "command_parser.h"
-#include "command_execution.h"
 #include "single_command_handler.h"
+#include "command_parser.h"
+#include "basic_command_execution.h"
+#include "special_command_execution.h"
+
 
 #include <stdio.h>
 
@@ -18,25 +20,15 @@ void handle_single_command(char *command){
 
     // 03_run command
     // DETERMINE TYPE OF COMMAND
-    run_single_command(args);
+    //execute_basic_command(args, 1);
+	  if (execute_special_command(args, 1)==1) {
+      // 01_special command entered   
+    	return;
 
-    /*
-    // 01_an empty command was entered.
-	if (args[0] == NULL) {
-   
-    	return 1;
-  	}
-
-  	int i;
-  	for (i = 0; i < lsh_num_builtins(); i++) {
-  		//special command entered
-    	if (strcmp(args[0], builtin_str[i]) == 0) {
-      		return (*builtin_func[i])(args);
-    	}
   	}else{
-  		// normal command type
-  		run_single_command(args);
+  		// 02_basic command entered
+  		execute_basic_command(args, 1);
   	}
-  	*/
+  	
 
 }
