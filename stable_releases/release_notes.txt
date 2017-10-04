@@ -1,0 +1,24 @@
+ver_01
+******
+
+1) working modules
+	* command_execution
+	* command_parser
+	* single_command_handler
+	* interactive_mode_module
+	* main.c
+2) release notes
+	- basic commands
+	- foreground mode
+
+*****************************************************************
+ver_02
+******
+
+1) interactive & batch modes are working fine
+2) pending
+	- special commands
+	- background special commands
+	- environment variables
+	
+

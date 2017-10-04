@@ -1,6 +1,8 @@
 // import libraries
 // *******************************************
 #include "special_command_execution.h"
+#include "file_handler.h"
+#include "display_handler.h"
 
 #include <sys/wait.h>
 #include <unistd.h>
@@ -24,17 +26,27 @@ int execute_special_command(char **args, int foreground_flag){
     }
 
     if(strcmp(args[0], "history")==0){
-
-      //chdir(args[1]);
-      printf("\nhistory command entered\n");
+      // read file from disk
+      char **history_list=read_file("directory");
+      // display history
+      print_list(history_list);
       return 1;
 
     }
 
+    if(strcmp(args[0], "log")==0){
+      // read file from disk
+      char **log_list=read_file("directory");
+      // display log
+      print_list(log_list);
+      return 1;
+
+    }
+
+
     if(strcmp(args[0], "exit")==0){
 
-      //chdir(args[1]);
-      printf("\nexit command entered\n");
+      exit(EXIT_SUCCESS);
       return 1;
 
     }

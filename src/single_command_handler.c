@@ -13,7 +13,9 @@
 void handle_single_command(char *command){
 
     // 01_get user command
-    //char command[512]="mkdir folder_success";
+    
+    //char *command_history;
+    //strcpy(command_history, command);
 
     // 02_parse command . get arguments
     char **args=parse_command(command);
