@@ -1,6 +1,7 @@
 // import libraries
 // *******************************************
 #include "special_command_execution.h"
+#include "environment_variables.h"
 #include "file_handler.h"
 #include "display_handler.h"
 
@@ -47,6 +48,13 @@ int execute_special_command(char **args, int foreground_flag){
     if(strcmp(args[0], "exit")==0){
 
       exit(EXIT_SUCCESS);
+      return 1;
+
+    }
+
+    if(strcmp(args[0], "PATH")==0){
+
+      printf("$PATH=%s", get_variable("PATH").value);
       return 1;
 
     }

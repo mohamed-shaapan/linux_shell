@@ -1,22 +1,11 @@
 // import libraries
 // *******************************************
+#include "environment_variables.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
-// global variables
-// *******************************************
-struct variable {
-
-   char *key;
-   char *value;
-
-};  
-
-#define BUFFSIZE 100
-struct variable *environment_variables;
-int variables_count;
 
 
 // internal functions
@@ -87,27 +76,4 @@ void set_variable(char *key, char *value){
 
 
 }
-
-
-
-
-// main function
-// *******************************************
-int main() {
-
-  initialize_environment();
-
-  //printf("\n$HOME=%s", get_variable("HOME").value);
-
-  set_variable("name", "mohamed shaapan");
-
-  printf("\n$name=%s", get_variable("name").value);
-
-  //printf("%d", (int)sizeof(struct variable));
-
-  printf("\n");
-
-
-}
-
 

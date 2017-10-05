@@ -1,8 +1,8 @@
 // import libraries
 // *******************************************
+#include "environment_variables.h"
 #include "interactive_mode_module.h"
 #include "batch_mode_module.h"
-
 
 #include <stdio.h>
 
@@ -10,15 +10,18 @@
 // *******************************************
 int main(int argc, char *argv[]){
 
-    // Load config files, if any.
+    // 01_initialize environment
+    initialize_environment();
+
+    // 02_select mode of operation
     if( argc > 1 ){
-      // Batch Mode
+      // batch Mode
       printf("\nBatch Mode");
       printf("\nFile Directory : %s\n", argv[1]);
       run_batch_mode(argv[1]);
     }
     else{
-      // Interative Mode
+      // interactive Mode
       printf("\nInteractive Mode\n");
       run_interactive_mode();
     }
