@@ -1,8 +1,9 @@
 // import libraries
 // *******************************************
+#include "../utilities/file_handler.h"
+#include "../command_handling/single_command_handler.h"
+
 #include "batch_mode_module.h"
-#include "file_handler.h"
-#include "single_command_handler.h"
 
 #include <sys/wait.h>
 #include <unistd.h>

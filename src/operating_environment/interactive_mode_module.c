@@ -1,7 +1,7 @@
 // import libraries
 // *******************************************
+#include "../command_handling/single_command_handler.h"
 #include "interactive_mode_module.h"
-#include "single_command_handler.h"
 
 #include <sys/wait.h>
 #include <unistd.h>

@@ -1,0 +1,14 @@
+single directory mode:
+**********************
+
+gcc main.c environment_variables.c interactive_mode_module.c single_command_handler.c command_parser.c basic_command_execution.c special_command_execution.c batch_mode_module.c file_handler.c display_handler.c command_history_handler.c
+
+
+****************************************************************************
+structured project:
+*******************
+
+gcc main.c operating_environment/environment_variables.c operating_environment/interactive_mode_module.c operating_environment/batch_mode_module.c command_handling/single_command_handler.c command_handling/basic_command_execution.c command_handling/special_command_execution.c utilities/command_parser.c utilities/file_handler.c utilities/command_history_handler.c utilities/display_handler.c
+
+
+****************************************************************************

@@ -29,3 +29,33 @@ ver_03
 	- some background handling
 	- "set" special command
 
+*****************************************************************
+ver_04
+******
+0) Project completely restructured into proper directories
+
+1) inter & batch are working
+2) pending
+	- some background handling
+	- "set" special command
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

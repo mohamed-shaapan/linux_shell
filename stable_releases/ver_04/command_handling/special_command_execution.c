@@ -1,9 +1,10 @@
 // import libraries
 // *******************************************
+#include "../operating_environment/environment_variables.h"
+#include "../utilities/command_history_handler.h"
+#include "../utilities/display_handler.h"
+
 #include "special_command_execution.h"
-#include "environment_variables.h"
-#include "command_history_handler.h"
-#include "display_handler.h"
 
 #include <sys/wait.h>
 #include <unistd.h>

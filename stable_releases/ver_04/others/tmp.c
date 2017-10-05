@@ -1,8 +1,8 @@
 // import libraries
 // *******************************************
-#include "operating_environment/environment_variables.h"
-#include "operating_environment/interactive_mode_module.h"
-#include "operating_environment/batch_mode_module.h"
+#include "environment_variables.h"
+#include "interactive_mode_module.h"
+#include "batch_mode_module.h"
 
 #include <stdio.h>
 
