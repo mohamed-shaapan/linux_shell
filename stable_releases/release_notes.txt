@@ -39,6 +39,14 @@ ver_04
 	- some background handling
 	- "set" special command
 
+*****************************************************************
+ver_05
+******
+- handled cd command. storing command to history used to break the program
+  because it's file on disk had relative dir in program. now we get prog original address at startup
+- interactive and batch mode working fine
+- pending (&) foreground vs background
+
 
 
 
