@@ -24,7 +24,7 @@ void run_batch_mode(char *file_directory){
 
   	while(command_list[index]!=NULL){
 
-  		printf("\nCommand Is : %s", command_list[index]);
+  		//printf("\nCommand Is : %s", command_list[index]);
   		handle_single_command(command_list[index]);
     	
     	index++;

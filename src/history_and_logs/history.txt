@@ -21,3 +21,25 @@ cd ../
 cd ..
 cd command_handling
 ls
+ls
+mkdir test_folder
+ls -lmkdir test_folder
+lsmkdir test_folder
+lsx=0
+ls
+ls
+x=5
+echo x
+echo $x
+history
+cd ..
+ls
+mkdir haha
+rmdir haha
+cd others
+ls
+cd others
+history
+echo $PATH
+echo $HOME
+exit

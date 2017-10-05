@@ -1,2 +1,2 @@
 mkdir test_folder
-ls -l
+ls
