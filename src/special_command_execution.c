@@ -2,7 +2,7 @@
 // *******************************************
 #include "special_command_execution.h"
 #include "environment_variables.h"
-#include "file_handler.h"
+#include "command_history_handler.h"
 #include "display_handler.h"
 
 #include <sys/wait.h>
@@ -26,24 +26,32 @@ int execute_special_command(char **args, int foreground_flag){
 
     }
 
+    // **************************************
+    // **************************************
+
     if(strcmp(args[0], "history")==0){
       // read file from disk
-      char **history_list=read_file("directory");
+      char **history_list=get_command_history();
       // display history
       print_list(history_list);
       return 1;
 
     }
 
+    // **************************************
+    // **************************************
+
     if(strcmp(args[0], "log")==0){
       // read file from disk
-      char **log_list=read_file("directory");
+      /*char **log_list=read_file("directory");
       // display log
-      print_list(log_list);
+      print_list(log_list);*/
       return 1;
 
     }
 
+    // **************************************
+    // **************************************
 
     if(strcmp(args[0], "exit")==0){
 
@@ -52,6 +60,9 @@ int execute_special_command(char **args, int foreground_flag){
 
     }
 
+    // **************************************
+    // **************************************
+
     if(strcmp(args[0], "PATH")==0){
 
       printf("$PATH=%s", get_variable("PATH").value);
@@ -59,6 +70,40 @@ int execute_special_command(char **args, int foreground_flag){
 
     }
 
+    // **************************************
+    // **************************************
+
+    if(strcmp(args[0], "echo")==0){
+
+      int index=1;
+      while(args[index]!=NULL){
+
+        if(args[index][0]=='$'){
+          // 01_if argument = variable
+          char *var_name=&args[index][1];
+
+          char *var=get_variable(var_name).value;
+          printf("%s ", var);
+
+        }else{
+          // 02_if argument = variable
+          printf("%s ", args[index]);
+
+        }
+
+        index++;
+  
+      }
+
+    // **************************************
+    // **************************************  
+
+      return 1;
+
+    }
+
+    // **************************************
+    // **************************************
 
     return 0;
 

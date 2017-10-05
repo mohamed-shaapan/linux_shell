@@ -14,7 +14,7 @@ void print_list(char **list){
 
   while(list[index]!=NULL){
 
-    printf("line#%d: %s", index+1, list[index]);
+    printf("command : %s", list[index]);
     index++;
   
   }

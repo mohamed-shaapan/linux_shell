@@ -4,18 +4,18 @@
 #include "command_parser.h"
 #include "basic_command_execution.h"
 #include "special_command_execution.h"
+#include "command_history_handler.h"
 
 
 #include <stdio.h>
 
 
-
+// internal function
+// *******************************************
 void handle_single_command(char *command){
 
-    // 01_get user command
-    
-    //char *command_history;
-    //strcpy(command_history, command);
+    // 01_save command to history
+    add_command_to_history(command);
 
     // 02_parse command . get arguments
     char **args=parse_command(command);

@@ -42,7 +42,7 @@ char **read_file(char *file_directory){
 
 // write to file
 // *******************************************
-void write_to_file(char *file_directory, char *line){
+void append_to_file(char *file_directory, char *line){
 
   // 1_open file
   FILE *pointer;
@@ -51,25 +51,8 @@ void write_to_file(char *file_directory, char *line){
   // 2_write to file
   //fprintf(pointer, line);
   fputs(line, pointer);
-  fputs("\n", pointer);
 
   // 3_close file
   fclose(pointer);
 
 }
-
-
-/*void print_list(char **list){
-
-  int index=0;
-
-  while(list[index]!=NULL){
-
-    printf("line#%d: %s", index+1, list[index]);
-    index++;
-  
-  }
-
-  printf("\n");
-
-}*/

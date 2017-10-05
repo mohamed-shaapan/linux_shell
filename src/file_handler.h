@@ -7,10 +7,8 @@
 */
 char **read_file(char *file_directory);
 
-void write_to_file(char *file_directory, char *line);
+void append_to_file(char *file_directory, char *line);
 
-//void add_command_to_history(char *command);
 
-//void add_log
 
 #endif // FILE_PROCESSING_H_
