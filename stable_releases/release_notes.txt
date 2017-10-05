@@ -20,5 +20,12 @@ ver_02
 	- special commands
 	- background special commands
 	- environment variables
-	
+
+*****************************************************************
+ver_03
+******
+1) inter & batch are working
+2) pending
+	- some background handling
+	- "set" special command
 

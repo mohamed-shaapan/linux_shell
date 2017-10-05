@@ -1,0 +1,12 @@
+mkdir mohamed_shaapan
+rmdir mohamed_shaapan
+history
+history
+ls
+echo haha
+history
+history
+mkdir new_folder
+rmdir new_folder
+history
+xç≥^
