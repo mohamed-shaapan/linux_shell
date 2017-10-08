@@ -11,11 +11,49 @@
 
 // internal functions
 // *******************************************
+int background_flag(char *command){
+  
+  int ampersand_found=0;
+  int ampersand_index=-1;
+  int index=0;
+
+  while(command[index]!='\0'){
+
+    if(command[index]=='&'){
+      ampersand_found=1;
+      ampersand_index=index;
+
+    }else if(ampersand_found==1){
+      if(!(command[index]==' '||command[index]==10)){
+        ampersand_found=0;
+      }
+
+    }
+
+    index++;
+
+  }
+
+  if(ampersand_found==1){
+    command[ampersand_index]=' ';
+    return 1;
+  }
+
+  return 0;
+
+}
+
+
+
+// interface functions
+// *******************************************
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELIM " \t\r\n\a"
 
 
-char **parse_command(char *command){
+char **parse_command(char *command, int *background_process_flag){
+
+    *background_process_flag=background_flag(command);
 
     int bufsize = LSH_TOK_BUFSIZE, position = 0;
     char **tokens = malloc(bufsize * sizeof(char*));
@@ -45,4 +83,3 @@ char **parse_command(char *command){
     tokens[position] = NULL;
     return tokens;
 }
-

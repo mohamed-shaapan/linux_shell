@@ -10,7 +10,7 @@
 
 // internal functions
 // *******************************************
-void execute_basic_command(char **args, int foreground_flag){
+void execute_basic_command(char **args, int background_flag){
 
   pid_t pid;
     int status;
@@ -28,14 +28,19 @@ void execute_basic_command(char **args, int foreground_flag){
       // Error forking
       perror("lsh");
 
-    } else if (foreground_flag==1){
+    } else{
       // Parent process
-      do {
-        waitpid(pid, &status, WUNTRACED);
-      } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+      if (background_flag==0){
+    
+        do {
+          waitpid(pid, &status, WUNTRACED);
+        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
 
-    } else {
-      // let program run in background
+      } else {
+
+        // let program run in background
+      }
+      
     }
 
 }

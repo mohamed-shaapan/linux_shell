@@ -168,6 +168,11 @@ int execute_special_command(char **args, int foreground_flag){
       return 1;
     }
 
+    /*if(args[0][0]==12){
+      exit_command();
+      return 1;
+    }*/
+
     // **************************************
     if(strcmp(args[0], "echo")==0){
       echo_command(args);

@@ -4,7 +4,7 @@
 /* 
 	- This function should be responsible for command parsing
 */
-char **parse_command(char *command);
+char **parse_command(char *command, int *background_process_flag);
 
 
 #endif // COMMANDS_H_

@@ -4,7 +4,7 @@
 /* 
 	- This function should be responsible for ...
 */
-void execute_basic_command(char **args, int foreground_flag);
+void execute_basic_command(char **args, int background_flag);
 
 
 #endif // COMMANDS_H_

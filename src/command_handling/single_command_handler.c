@@ -8,17 +8,29 @@
 #include "special_command_execution.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 
 // internal function
 // *******************************************
 void handle_single_command(char *command){
 
+    // handle exit on ctrl+D
+    if(command[0]==0){
+      printf("\nEXIT Ctrl+D\n");
+      exit(EXIT_SUCCESS);
+    }
+
     // 01_save command to history
     add_command_to_history(command);
 
     // 02_parse command . get arguments
-    char **args=parse_command(command);
+    int background_process_flag=0;
+    char **args=parse_command(command, &background_process_flag);
+
+    if(background_process_flag==1){
+      printf("\nBackground Process\n");
+    }
 
     // 03_run command
     // DETERMINE TYPE OF COMMAND
@@ -29,7 +41,7 @@ void handle_single_command(char *command){
 
   	}else{
   		// 02_basic command entered
-  		execute_basic_command(args, 1);
+  		execute_basic_command(args, background_process_flag);
   	}
   	
 

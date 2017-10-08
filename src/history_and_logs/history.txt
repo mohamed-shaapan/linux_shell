@@ -49,3 +49,57 @@ ls
 ls
 history
 exit
+exit
+ls
+cd ..
+history
+xxnX‹xnclear
+exit
+ls
+clear
+x=5 &
+ls &
+exit
+ls &
+exit
+ls
+ls &
+exit
+blah &
+ls &
+ls &
+asd &
+ls &
+ls &
+ls &
+ls &
+ls &
+exit
+ls &
+exit
+mkdir mohamed &
+ls
+ls
+ls
+ls &
+ls
+ls &
+clear
+cd ~
+pwd
+ls
+asd
+ggg
+qwe
+ls
+$­û
+$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û
+$­û$­û$­û$­ûasd
+$­û$­û$­û$­ûa
+as
+asd
+$­û$­û$­û$­û$­û$­û$­û$­û$­û$­û$­ûclear
+ls
+ls
+mkdir mohamed
+rmdir mohamed
