@@ -103,3 +103,9 @@ ls
 ls
 mkdir mohamed
 rmdir mohamed
+x=5
+echo $x
+x=5
+echo $x
+makedir $x
+mkdir $x
