@@ -47,7 +47,16 @@ ver_05
 - interactive and batch mode working fine
 - pending (&) foreground vs background
 
+*****************************************************************
+ver_06
+******
+- fixed some bugs heavily attributed to strings having garbage values (serious problem appeared in many places)
+- pending
+	- PATH in EXECV()
+	- LOG
+	- Expressions and Strings
 
+*****************************************************************
 
 
 
