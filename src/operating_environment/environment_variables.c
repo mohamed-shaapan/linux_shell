@@ -18,11 +18,13 @@ void initialize_environment(){
 
   struct variable PATH;
   PATH.key="PATH";
-  PATH.value="/home/bin";
+  //PATH.value="/home/bin";
+  PATH.value=getenv("PATH");
 
   struct variable HOME;
   HOME.key="HOME";
-  HOME.value="/home/shaapan/";
+  //HOME.value="/home/shaapan/";
+  HOME.value=getenv("HOME");
 
   environment_variables[0]=PATH;
   environment_variables[1]=HOME;
@@ -58,8 +60,18 @@ struct variable get_variable(char *key){
   
   }
 
-  struct variable result;
-  return result;
+  struct variable system_var;
+  system_var.key=key;
+  system_var.value=getenv(key);
+
+  if(system_var.value==NULL){
+    system_var.value="variable not found";
+  }
+
+  //printf("\nBASH : %s\n", getenv("BASH"));
+
+
+  return system_var;
 
 }
 

@@ -30,6 +30,7 @@ int get_strlen(char *string){
 char *replace_variables(char *command){
 
   char *result=malloc(512*sizeof(char));
+  //memset(result, '\0', 512*sizeof(char));
   
   int result_index=0;
   int command_index=0;
@@ -83,6 +84,7 @@ char *replace_variables(char *command){
 
   }
 
+  result[result_index]='\0';
   return result;
   
 }

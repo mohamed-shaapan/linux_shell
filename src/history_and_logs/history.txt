@@ -109,3 +109,117 @@ x=5
 echo $x
 makedir $x
 mkdir $x
+ls
+ls
+ls
+ls
+ls
+mkdir
+mkdir hahahaha
+ls
+rmdir hahahaha
+ls
+ls
+clear
+ls
+cd
+a
+mkdir
+a
+aa
+aaa
+ls
+mkdir
+a
+b
+c
+aa
+aaaa
+aaaaaaa
+ls
+
+ls
+
+ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+
+
+
+
+ls
+
+ls
+
+clear
+
+ls
+clear
+ls
+echo $BASH
+echo $BASH
+ls
+echo $PATH
+echo $HOME
+echo $BASH
+echo $BASH
+echo $haha
+echo $x
+echo $x
+echo $s
+echo $BASH
+echo $BASH
+echo $x
+echo $ash
+echo $BASH
+echo $PATH
+echo $PATH
+echo $BASH
+echo $HOME
+echo $PATH
+echo $x
+cd ~
+pwd
+pwd
+cd ~
+pwd
+pwd
+cd ~
+pwd
+cd Desktop
+pwd
+cd ~shaapan
+pwd

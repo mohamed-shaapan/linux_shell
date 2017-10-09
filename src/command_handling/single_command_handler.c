@@ -20,6 +20,10 @@ void handle_single_command(char *command){
       printf("\nEXIT Ctrl+D\n");
       exit(EXIT_SUCCESS);
     }
+    if(command[0]=='\n'){
+      return;
+    }
+
 
     // 01_save command to history
     add_command_to_history(command);
@@ -27,10 +31,6 @@ void handle_single_command(char *command){
     // 02_parse command . get arguments
     int background_process_flag=0;
     char **args=parse_command(command, &background_process_flag);
-
-    if(background_process_flag==1){
-      printf("\nBackground Process\n");
-    }
 
     // 03_run command
     // DETERMINE TYPE OF COMMAND

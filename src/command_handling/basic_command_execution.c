@@ -17,19 +17,21 @@ void execute_basic_command(char **args, int background_flag){
 
     pid = fork();
     
+    // Child process ***********************************
     if (pid == 0) {
-      // Child process
       if (execvp(args[0], args) == -1) {
         perror("lsh");
       }
       exit(EXIT_FAILURE);
 
+    // Error forking ***********************************
     } else if (pid < 0) {
-      // Error forking
+      
       perror("lsh");
 
+    // Parent process **********************************
     } else{
-      // Parent process
+      
       if (background_flag==0){
     
         do {

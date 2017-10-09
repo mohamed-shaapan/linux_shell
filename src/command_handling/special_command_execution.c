@@ -44,7 +44,15 @@ void parse_equation(char *equation, char *return_key, char *return_value){
 // *******************************************
 void cd_command(char *new_directory){
 
-  chdir(new_directory);
+
+  if(new_directory[0]=='~'){
+  //if(strcmp(new_directory, "~")==0){
+    chdir(get_variable("HOME").value);
+  }else{
+    chdir(new_directory);
+  }
+
+  
 
 }
 
